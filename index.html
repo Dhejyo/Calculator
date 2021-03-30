@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <h4>Basic Calculator</h4>
+        <textarea class="list--text"></textarea>
+        <table class="list">
+          
+           
+            <tr>
+                <td><button class="list--item">1</button></td>
+                <td><button class="list--item">2</button></td>
+                <td><button class="list--item">3</button></td>
+                <td><button class="list--item">+</button></td>
+            </tr>
+            <tr>
+                <td><button class="list--item">4</button></td>
+                <td><button class="list--item">5</button></td>
+                <td><button class="list--item">6</button></td>
+                <td><button class="list--item">-</button></td>
+            </tr>
+            <tr>
+                <td><button class="list--item">7</button></td>
+                <td><button class="list--item">8</button></td>
+                <td><button class="list--item">9</button></td>
+                <td><button class="list--item">0</button></td>
+            </tr>
+      
+        </table>
+        <button class="calc">Calculate</button>
+    </div>
+    <script>
+        var wrap = document.getElementById('wrap')
+        var expression = 0;
+        wrap.addEventListener('click', EventHandle)
+        function EventHandle() {
+            // Check if it’s the list element, we want the clicks only from them
+            if (event.target.classList.contains('list--item')) {
+                console.log('The item ' + event.target.innerHTML + ' was just clicked');
+                expression = expression + event.target.innerHTML;
+                document.querySelector('.list--text').innerHTML = expression;
+            }
+        }
+        wrap.addEventListener('click', Calculate)
+        function Calculate() {
+            // Check if it’s the list element, we want the clicks only from them
+            if (event.target.classList.contains('calc')) {
+                console.log('The item was just clicked');
+                console.log(expression);
+                document.querySelector('.list--text').innerHTML = expression + '=' + eval(expression);
+            }
+        }
+    </script>
+</body>
+
+<script>
+
+</script>
+
+</html>
